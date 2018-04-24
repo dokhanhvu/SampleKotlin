@@ -2,6 +2,8 @@ package com.example.vudo.samplekotlin.ui.screen.coupon.ViewModel
 
 import com.example.vudo.samplekotlin.model.BaseEntity
 import com.example.vudo.samplekotlin.model.Coupon
+import com.example.vudo.samplekotlin.provider.scheduler.SchedulerProvider
+import com.example.vudo.samplekotlin.provider.scheduler.SchedulerProviderImpl
 import com.example.vudo.samplekotlin.ui.screen.base.BaseViewModel
 import com.example.vudo.samplekotlin.ui.screen.coupon.CouponListNavigator
 import com.example.vudo.samplekotlin.ui.screen.coupon.data.CouponDataSource
@@ -18,19 +20,18 @@ import javax.inject.Inject
 class CouponListViewModel () : BaseViewModel<CouponListNavigator>() {
 
     lateinit var dataSource: CouponDataSource
-
-    lateinit var adapter : FragmentPagerAdapter
+    lateinit var schedulerProvider: SchedulerProvider
 
     @Inject
-    constructor(couponRepository : CouponRepositoryImpl) : this(){
+    constructor(couponRepository : CouponRepositoryImpl, schedulerProvider : SchedulerProviderImpl) : this(){
         this.dataSource = couponRepository
+        this.schedulerProvider = schedulerProvider
     }
 
     fun getCoupons(){
         getCompositeDisposable().add(
                 dataSource.getCoupons()
-                        .subscribeOn(Schedulers.computation())
-                        .observeOn(AndroidSchedulers.mainThread())
+                        .compose(schedulerProvider.observableComputationScheduler())
                         .doOnSubscribe { _: Disposable? ->  }
                         .doOnTerminate {  }
                         .subscribe({t: BaseEntity<List<Coupon>> ->

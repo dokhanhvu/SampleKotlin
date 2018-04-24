@@ -25,7 +25,7 @@ class CouponItemViewModel constructor(private val coupon : Coupon): BaseViewMode
     private fun bind(){
         imageUrl = ObservableField(coupon.cover)
         content = ObservableField(coupon.content)
-        deal = ObservableField("-" + coupon.deal + "-")
+        deal = ObservableField("-" + coupon.deal + "%")
         name = ObservableField(coupon.name)
         detail = ObservableField(coupon.detail)
         category = ObservableField(coupon.category)
