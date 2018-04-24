@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.example.vudo.samplekotlin.ui.screen.coupon.ViewModel.CouponDialogViewModel">
+        </variable>
+    </data>
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    android:padding="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorWhite"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/btn_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="10dp"
+                android:background="@drawable/bg_gray_oval"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Cancel"
+                android:onClick="@{() -> viewmodel.onCancelClick()}"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/btn_cancel"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10dp"
+                android:text="Shop coupon"
+                android:textColor="@color/colroBlack"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/btn_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="10dp"
+                android:background="@drawable/bg_gray_oval"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Back"
+                android:onClick="@{() -> viewmodel.onCancelClick()}"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite"
+                android:textSize="16sp" />
+
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/ic_qr_code" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imv_cover"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/colorGray"
+            android:textSize="16sp"
+            android:text="@{viewmodel.name}"
+            tools:text="Pi Vegetarian Bistro - Am thuc chay" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/colorGray" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="Shop"
+                android:textColor="@color/colorGray"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tv_shop_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="7"
+                android:textSize="18sp"
+                android:text="@{viewmodel.shopName}"
+                tools:text="Foody.vn" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/colorGray" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="Content"
+                android:textColor="@color/colorGray"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tv_content"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="7"
+                android:textSize="15sp"
+                android:text="@{viewmodel.content}"
+                tools:text="Giảm 20% áp dụng cho hoá đơn trên 1 triệu đồng" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/colorGray" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="Detail"
+                android:textColor="@color/colorGray"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tv_detail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="7"
+                android:textSize="15sp"
+                android:text="@{viewmodel.detail}"
+                tools:text="Quán đẹp, món ăn lạ. Đa phần là khách nước ngoài hoặc tầng lớp trung lưu. Bếp trưởng là người Ấn Độ. View cũng khá đẹp, thích hợp cho cặp đôi ăn chay mún hẹn hò, sinh nhật, lễ tình nhân." />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/colorGray" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="Campaign"
+                android:textColor="@color/colorGray"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tv_campaign"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="7"
+                android:textColor="@color/colorRed"
+                android:textSize="15sp"
+                android:text="@{viewmodel.campaign}"
+                tools:text="2017/05/01 - 2017/05/11" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/colorGray" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/colorCinnabar"
+                android:padding="5dp"
+                android:textStyle="bold"
+                android:text="Deal" />
+
+            <TextView
+                android:id="@+id/tv_deal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:background="@color/colorPearlLusta"
+                android:padding="5dp"
+                android:textStyle="bold"
+                android:text="@{viewmodel.deal}"
+                tools:text="-20%" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_friend"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/bg_orange_corner"
+            android:padding="10dp"
+            android:layout_margin="5dp"
+            android:text="Send to friend" />
+
+        <Button
+            android:id="@+id/btn_sms"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/bg_blue_corner"
+            android:padding="10dp"
+            android:layout_margin="5dp"
+            android:text="Send via SMS" />
+
+        <Button
+            android:id="@+id/btn_chat"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/bg_pink_corner"
+            android:padding="10dp"
+            android:layout_margin="5dp"
+            android:text="Send via Chat" />
+    </LinearLayout>
+</RelativeLayout>
+</layout>

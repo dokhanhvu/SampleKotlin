@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="couponItemViewModel"
+            type="com.example.vudo.samplekotlin.ui.screen.coupon.ViewModel.CouponItemViewModel"/>
+    </data>
+
+<android.support.v4.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:textSize="16sp"
+        android:textAlignment="center"
+        android:text="@{couponItemViewModel.content}"
+        tools:text="Giảm 20% áp dụng cho hoá đơn trên 1 triệu đồng zzzzzzzzz" />
+
+    <android.support.v7.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_card_boder"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imv_cover"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            app:imageUrl="@{couponItemViewModel.imageUrl}"
+            android:scaleType="centerCrop"
+            tools:src="@mipmap/ic_launcher_round"/>
+
+        <TextView
+            android:id="@+id/tv_corner_triangle"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/bg_top_left_triangle"
+            android:textColor="@color/colorWhite"
+            android:padding="5dp"
+            android:textSize="20dp"
+            android:text="@{couponItemViewModel.deal}"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_margin="10dp"
+            android:background="@color/colorCorn"
+            android:padding="10dp"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold"
+            android:text="Buffet"
+            tools:text="Buffet" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imv_cover"
+            android:background="@color/colorGray"
+            android:padding="10dp"
+            android:textColor="@color/colorWhite"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:text="@{couponItemViewModel.name}"
+            tools:text="Pi Vegetarian Bistro - Am thuc chay" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_name"
+            android:background="@color/colorWhite"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/tv_detail"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:layout_below="@+id/tv_name"
+                android:layout_centerHorizontal="true"
+                android:maxHeight="40dp"
+                android:textColor="@color/colorGray_hint_text"
+                android:text="@{couponItemViewModel.detail}"
+                android:textSize="14sp"
+                tools:text="Quán đẹp, món ăn lạ. Đa phần là khách nước ngoài hoặc tầng lớp trung lưu. Bếp trưởng là người Ấn Độ. View cũng khá đẹp, thích hợp cho cặp đôi ăn chay mún hẹn hò, sinh nhật, lễ tình nhân." />
+
+            <TextView
+                android:id="@+id/tv_category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorGray"
+                android:textSize="16sp"
+                android:text="@{couponItemViewModel.category}"
+                tools:text="Ẩm thực chay" />
+        </LinearLayout>
+    </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+    <Button
+        android:id="@+id/btn_coupon_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/bg_gray_oval"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:text="View Coupon Detail"
+        android:textStyle="bold"
+        android:onClick="@{() -> couponItemViewModel.onDetailClick()}"
+        android:textAllCaps="false"
+        android:textColor="@color/colorWhite"
+        android:textSize="16sp" />
+
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>
+</layout>
